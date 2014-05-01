@@ -103,3 +103,5 @@ facebook_like: false
 navigation:
 - text: Home
   url: /index.html
+- text: Archives
+  url: /archives

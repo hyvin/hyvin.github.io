@@ -98,3 +98,8 @@ google_analytics_tracking_id:
 
 # Facebook Like
 facebook_like: false
+
+
+navigation:
+- text: Home
+  url: /index.html
