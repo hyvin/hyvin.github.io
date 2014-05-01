@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Hyvin's Learning Diary</title>
+  <title>Direct and indirect eval call - Hyvin's Learning Diary</title>
   <meta name="author" content="Hyvin">
 
   
@@ -21,7 +21,7 @@ var global = (function () { return this &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://hyvin.github.io">
+  <link rel="canonical" href="http://hyvin.github.io/blog/2014/05/02/direct-and-indirect-eval-call">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Hyvin's Learning Diary" type="application/atom+xml">
@@ -65,15 +65,12 @@ var global = (function () { return this &hellip;">
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/05/02/direct-and-indirect-eval-call/">Direct and Indirect Eval Call</a></h1>
+      <h1 class="entry-title">Direct and Indirect Eval Call</h1>
     
     
       <p class="meta">
@@ -91,14 +88,14 @@ var global = (function () { return this &hellip;">
 
 <time datetime="2014-05-02T00:49:09+03:00" pubdate data-updated="true">May 2<span>nd</span>, 2014</time>
         
-         | <a href="/blog/2014/05/02/direct-and-indirect-eval-call/#disqus_thread">Comments</a>
+         | <a href="#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>今天在看javascript design pattern中关于如何  <a href="https://github.com/shichuan/javascript-patterns/blob/master/general-patterns/access-to-global-object.html">access global object</a>, 如下代码的目的是无论在一般mode和strict mode都可以拿到global这个对象：</p>
+<div class="entry-content"><p>今天在看javascript design pattern中关于如何  <a href="https://github.com/shichuan/javascript-patterns/blob/master/general-patterns/access-to-global-object.html">access global object</a>, 如下代码的目的是无论在一般mode和strict mode都可以拿到global这个对象：</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -111,22 +108,16 @@ var global = (function () { return this &hellip;">
 
 <p>但是对<code>(1, eval)('this')</code> 非常不解，stackoverflow上面有说是这行代码表示indirect eval call，而direct和indirect eval的区别是direct的this是指闭包的this，indirect的this则是全局的this就好像这个方程是在全局被调用一样。不过还是没有解决我的问题，究竟（1，eval）这种写法到底是什么意思，于是又分别读到了一篇<a href="http://perfectionkills.com/global-eval-what-are-the-options/">全局eval</a>和关于<a href="http://www.ecma-international.org/ecma-262/5.1/#sec-11.2">js的符号及术语</a>的定义。</p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/05/01/hi-from-finland/">Hi From Finland</a></h1>
-    
-    
-      <p class="meta">
-        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Hyvin</span></span>
+
+      
 
 
 
@@ -138,33 +129,45 @@ var global = (function () { return this &hellip;">
   
 
 
-<time datetime="2014-05-01T13:31:18+03:00" pubdate data-updated="true">May 1<span>st</span>, 2014</time>
-        
-         | <a href="/blog/2014/05/01/hi-from-finland/#disqus_thread">Comments</a>
-        
-      </p>
+<time datetime="2014-05-02T00:49:09+03:00" pubdate data-updated="true">May 2<span>nd</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/javascript/'>javascript</a>
+  
+</span>
+
+
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><p>劳动节 阴晴</p>
-
-<p>自从4月考试周结束后，宿舍区就夜夜笙歌。每晚都有咚咚咚，咚咚咚的低音炮从四面八方传入屋内，好不热闹。这对刚从寂静的山上搬下来的我来说，实在是太棒了。</p>
-
-<p>今天终于有空把octopress搭建起来，disqus也是个好玩意儿！Github无缘无故成了这么多博客的宿主不知道作何感想。</p>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://hyvin.github.io/blog/2014/05/02/direct-and-indirect-eval-call/" data-via="" data-counturl="http://hyvin.github.io/blog/2014/05/02/direct-and-indirect-eval-call/" >Tweet</a>
+  
+  
+  
 </div>
-  
-  
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/05/01/hi-from-finland/" title="Previous Post: Hi From Finland">&laquo; Hi From Finland</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
+  </section>
+
+
+</div>
+
 <aside class="sidebar">
   
     <section>
@@ -189,6 +192,7 @@ var global = (function () { return this &hellip;">
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -203,7 +207,10 @@ var global = (function () { return this &hellip;">
       var disqus_shortname = 'hyvin';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://hyvin.github.io/blog/2014/05/02/direct-and-indirect-eval-call/';
+        var disqus_url = 'http://hyvin.github.io/blog/2014/05/02/direct-and-indirect-eval-call/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

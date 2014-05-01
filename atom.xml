@@ -4,7 +4,7 @@
   <title><![CDATA[Hyvin's Learning Diary]]></title>
   <link href="http://hyvin.github.io/atom.xml" rel="self"/>
   <link href="http://hyvin.github.io/"/>
-  <updated>2014-05-02T00:10:56+03:00</updated>
+  <updated>2014-05-02T00:50:23+03:00</updated>
   <id>http://hyvin.github.io/</id>
   <author>
     <name><![CDATA[Hyvin]]></name>
@@ -12,6 +12,26 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Direct and indirect eval call]]></title>
+    <link href="http://hyvin.github.io/blog/2014/05/02/direct-and-indirect-eval-call/"/>
+    <updated>2014-05-02T00:49:09+03:00</updated>
+    <id>http://hyvin.github.io/blog/2014/05/02/direct-and-indirect-eval-call</id>
+    <content type="html"><![CDATA[<p>今天在看javascript design pattern中关于如何  <a href="https://github.com/shichuan/javascript-patterns/blob/master/general-patterns/access-to-global-object.html">access global object</a>, 如下代码的目的是无论在一般mode和strict mode都可以拿到global这个对象：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">global</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>              <span class="k">return</span> <span class="k">this</span> <span class="o">||</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">eval</span><span class="p">)(</span><span class="s1">&#39;this&#39;</span><span class="p">);</span>
+</span><span class='line'>          <span class="p">}());</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>但是对<code>(1, eval)('this')</code> 非常不解，stackoverflow上面有说是这行代码表示indirect eval call，而direct和indirect eval的区别是direct的this是指闭包的this，indirect的this则是全局的this就好像这个方程是在全局被调用一样。不过还是没有解决我的问题，究竟（1，eval）这种写法到底是什么意思，于是又分别读到了一篇<a href="http://perfectionkills.com/global-eval-what-are-the-options/">全局eval</a>和关于<a href="http://www.ecma-international.org/ecma-262/5.1/#sec-11.2">js的符号及术语</a>的定义。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Hi From Finland]]></title>
