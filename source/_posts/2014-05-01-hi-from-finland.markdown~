@@ -12,7 +12,7 @@ categories: Daily
 经历了百度面试后，深深发现自己在专业基础知识上薄弱，于是决定弄块儿地记录学习中遇到的问题。其实一直对未来要做哪个方向比较迷茫，前端？后端？网络公司？软件公司？通信公司？程序员还是非程序员？希望慢慢的会清晰起来。
 
 
-{% codeblock Javascript Array Syntax lang:js http://j.mp/pPUUmW MDN Documentation %}
+{% codeblock lang:js%}
 var arr1 = new Array(arrayLength);
 var arr2 = new Array(element0, element1, ..., elementN);
 {% endcodeblock %}
