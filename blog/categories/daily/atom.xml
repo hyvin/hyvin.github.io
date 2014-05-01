@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Hyvin's Learning Diary]]></title>
-  <link href="http://hyvin.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Daily | Hyvin's Learning Diary]]></title>
+  <link href="http://hyvin.github.io/blog/categories/daily/atom.xml" rel="self"/>
   <link href="http://hyvin.github.io/"/>
   <updated>2014-05-01T15:37:04+03:00</updated>
   <id>http://hyvin.github.io/</id>
@@ -21,7 +21,7 @@
     <content type="html"><![CDATA[<ul>
   
     <li>
-      <a href="http://hyvin.github.io/blog/2014/05/01/hi-from-finland/">Hi From Finland</a>
+      <a href="/blog/2014/05/01/hi-from-finland/">Hi From Finland</a>
     </li>
   
 </ul>
