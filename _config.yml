@@ -100,8 +100,4 @@ google_analytics_tracking_id:
 facebook_like: false
 
 
-navigation:
-- text: Home
-  url: /index.html
-- text: Archives
-  url: /blog/archives
+
