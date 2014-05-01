@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Daily | Hyvin's Learning Diary]]></title>
   <link href="http://hyvin.github.io/blog/categories/daily/atom.xml" rel="self"/>
   <link href="http://hyvin.github.io/"/>
-  <updated>2014-05-01T16:11:45+03:00</updated>
+  <updated>2014-05-01T16:16:21+03:00</updated>
   <id>http://hyvin.github.io/</id>
   <author>
     <name><![CDATA[Hyvin]]></name>
@@ -22,8 +22,7 @@
 
 <p>经历了百度面试后，深深发现自己在专业基础知识上薄弱，于是决定弄块儿地记录学习中遇到的问题。其实一直对未来要做哪个方向比较迷茫，前端？后端？网络公司？软件公司？通信公司？程序员还是非程序员？希望慢慢的会清晰起来。</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Javascript Array Syntax <a href="http://j.mp/pPUUmW">http://j.mp/pPUUmW</a> MDN Documentation </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">arr1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="nx">arrayLength</span><span class="p">);</span>
 </span><span class='line'><span class="kd">var</span> <span class="nx">arr2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="nx">element0</span><span class="p">,</span> <span class="nx">element1</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">hellip</span><span class="p">;,</span> <span class="nx">elementN</span><span class="p">);</span>
