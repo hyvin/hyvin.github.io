@@ -2,7 +2,7 @@
 layout: post
 title: "Hi From Finland"
 date: 2014-05-01 13:31:18 +0300
-comments: true
+comments: false
 categories: Daily
 ---
 
