@@ -4,7 +4,7 @@
   <title><![CDATA[Category: javascript | Hyvin's Learning Diary]]></title>
   <link href="http://hyvin.github.io/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://hyvin.github.io/"/>
-  <updated>2014-05-02T00:57:42+03:00</updated>
+  <updated>2014-05-02T01:01:52+03:00</updated>
   <id>http://hyvin.github.io/</id>
   <author>
     <name><![CDATA[Hyvin]]></name>
@@ -18,7 +18,7 @@
     <link href="http://hyvin.github.io/blog/2014/05/02/direct-and-indirect-eval-call/"/>
     <updated>2014-05-02T00:49:09+03:00</updated>
     <id>http://hyvin.github.io/blog/2014/05/02/direct-and-indirect-eval-call</id>
-    <content type="html"><![CDATA[<p>今天在看javascript design pattern中关于如何  <a href="https://github.com/shichuan/javascript-patterns/blob/master/general-patterns/access-to-global-object.html">access global object</a>, 如下代码的目的是无论在一般mode和strict mode都可以拿到global这个对象：
+    <content type="html"><![CDATA[<p>今天看到javascript design pattern中关于如何  <a href="https://github.com/shichuan/javascript-patterns/blob/master/general-patterns/access-to-global-object.html">access global object</a>, 代码如下：
 ```javascript
 var global = (function () {</p>
 
@@ -27,7 +27,7 @@ var global = (function () {</p>
 </code></pre>
 
 <p><code>``
-但是对</code>(1, eval)(&lsquo;this&rsquo;)` 非常不解，stackoverflow上面有说是这行代码表示indirect eval call，而direct和indirect eval的区别是direct的this是指闭包的this，indirect的this则是全局的this就好像这个方程是在全局被调用一样。不过还是没有解决我的问题，究竟（1，eval）这种写法到底是什么意思，于是又分别读到了一篇<a href="http://perfectionkills.com/global-eval-what-are-the-options/">全局eval</a>和关于<a href="http://www.ecma-international.org/ecma-262/5.1/#sec-11.2">js的符号及术语</a>的定义。</p>
+这代码的意思是无论在non-strict mode和strict mode都可以拿到global这个对象。但是</code>(1, eval)(&lsquo;this&rsquo;)`这行代码究竟是什么写法，对1到底代表什么非常不解，stackoverflow上面有说是这行代码表示indirect eval call，而direct和indirect eval的区别是direct的this是指闭包的this，indirect的this则是全局的this就好像这个方程是在全局被调用一样。还是没解释（1，eval）这种写法到底是什么意思，于是又分别读到了一篇<a href="http://perfectionkills.com/global-eval-what-are-the-options/">全局eval</a>和<a href="http://www.ecma-international.org/ecma-262/5.1/#sec-11.2">js的符号及术语</a>的定义。</p>
 ]]></content>
   </entry>
   
