@@ -104,7 +104,67 @@ var global = (function () { return this || (1, eval)(&#39;this&#39;); }()); &hel
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>这代码的意思是无论在non-strict mode和strict mode都可以拿到global这个对象。但是<code>(1, eval)('this')</code>这行代码究竟是什么写法，对1到底代表什么非常不解，stackoverflow上面有说是这行代码表示indirect eval call，而direct和indirect eval的区别是direct的this是指闭包的this，indirect的this则是全局的this就好像这个方程是在全局被调用一样。还是没解释（1，eval）这种写法到底是什么意思，于是又分别读到了一篇<a href="http://perfectionkills.com/global-eval-what-are-the-options/">全局eval</a>和<a href="http://www.ecma-international.org/ecma-262/5.1/#sec-11.2">js的符号及术语</a>的定义。</p>
+<p>这代码的意思是无论在non-strict mode和strict mode都可以拿到global这个对象。但是<code>(1, eval)('this')</code>这行代码究竟是什么写法，对1到底代表什么非常不解，stackoverflow上面有说是这行代码表示indirect eval call，而direct和indirect eval的区别是direct的this是指闭包的this，indirect的this则是全局的this就好像这个方程是在全局被调用一样。还是没解释（1，eval）这种写法到底是什么意思，于是又分别读到了<a href="http://perfectionkills.com/global-eval-what-are-the-options/">全局eval</a>、JavaScript: The definitive guide的<a href="https://www.inkling.com/read/javascript-definitive-guide-david-flanagan-6th/chapter-4/evaluation-expressions">4.12</a>章和<a href="http://www.ecma-international.org/ecma-262/5.1/#sec-11.2">js的符号及术语</a>的定义。</p>
+
+<p>找了半天，原来和<code>，</code>在js的定义有关（大汗。。。）：</p>
+
+<blockquote><p>The comma operator evaluates each of its operands (from left to right) and returns the value of the last operand.</p></blockquote>
+
+<p>意思是：<code>，</code>逗号会从左到右evaluate每个运算对象，返回最后一个运算对象的值。所以（1,eval）还是返回了eval。至于究竟是直接还是间接调用，ES5对直接eval的定义： “eval” in CallExpression should be a Reference, not a value。</p>
+
+<p>于是又涉及到一个名词：CallExpression，和一个问题：怎么判断eval是reference还是value？</p>
+
+<p>先看什么是CallExpression：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>  <span class="p">(</span>     <span class="mi">1</span>        <span class="p">,</span>         <span class="nb">eval</span>  <span class="p">)</span>        <span class="p">(</span> <span class="s1">&#39;1+1&#39;</span> <span class="p">)</span>
+</span><span class='line'>     <span class="o">|</span><span class="nx">____</span><span class="o">|</span>   <span class="o">|</span><span class="nx">_____</span><span class="o">|</span>    <span class="o">|</span><span class="nx">_____</span><span class="o">|</span>
+</span><span class='line'>     <span class="nx">Literal</span>  <span class="nx">Operator</span>   <span class="nx">Identifier</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="o">|</span><span class="nx">_________________________</span><span class="o">|</span>
+</span><span class='line'>     <span class="nx">Expression</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="o">|</span><span class="nx">______________________________</span><span class="o">|</span>
+</span><span class='line'>  <span class="nx">PrimaryExpression</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="o">|</span><span class="nx">______________________________</span><span class="o">|</span>        <span class="o">|</span><span class="nx">________</span><span class="o">|</span>
+</span><span class='line'>  <span class="nx">MemberExpression</span>                        <span class="nx">Arguments</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="o">|</span><span class="nx">________________________________________________</span><span class="o">|</span>
+</span><span class='line'>  <span class="nx">CallExpression</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>reference还是value？
+先看几个例子</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'> <span class="p">(((</span><span class="nb">eval</span><span class="p">)))();</span> <span class="c1">//直接</span>
+</span><span class='line'> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">eval</span><span class="p">)();</span> <span class="c1">// 间接</span>
+</span><span class='line'> <span class="p">(</span><span class="nb">eval</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">)();</span> <span class="c1">// 间接</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>原因是在ES5定义里，<code>，</code>和<code>=</code>这类操作符会执行运算对象的<code>GetValue</code>方法，而 Grouping Operator — <code>( )</code> 不会evaluate传入的expression，如果传入的是reference则整个括号内内容不变，将还是一个reference。</p>
+
+<p>再看上面提到<code>GetValue</code>这个玩意儿。根据官方文档：
+GetValue (V)</p>
 </div>
 
 
