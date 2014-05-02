@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: javascript | Hyvin's Learning Diary]]></title>
+  <title><![CDATA[Category: javascript | Hyvin's Notepad]]></title>
   <link href="http://hyvin.github.io/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://hyvin.github.io/"/>
-  <updated>2014-05-02T16:20:03+03:00</updated>
+  <updated>2014-05-02T21:39:40+03:00</updated>
   <id>http://hyvin.github.io/</id>
   <author>
     <name><![CDATA[Hyvin]]></name>
