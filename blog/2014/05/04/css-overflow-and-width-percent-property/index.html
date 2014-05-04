@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Hi From Finland - Hyvin's Notepad</title>
+  <title>CSS overflow and width(%) 如何搭配工作 - Hyvin's Notepad</title>
   <meta name="author" content="Hyvin">
 
   
-  <meta name="description" content="劳动节 阴晴 自从4月考试周结束后，宿舍区就夜夜笙歌。每晚都有咚咚咚，咚咚咚的低音炮从四面八方传入屋内，好不热闹。这对刚从寂静的山上搬下来的我来说，实在是太棒了。 今天终于有空把octopress搭建起来，disqus也是个好玩意儿！Github无缘无故成了这么多博客的宿主不知道作何感想。
-">
+  <meta name="description" content="今天看到一个用css写的[图片播放器]，介于在面试中被问到过类似问题(不过问的是有没有用js写过组建，比如图片播放器)，决定仔细研究一下。由于没有特别认真写过css也没有研究过specification，每次写都感觉在“调试”，就好像 &mdash;&ndash;> 回正题。
+这个image &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://hyvin.github.io/blog/2014/05/01/hi-from-finland">
+  <link rel="canonical" href="http://hyvin.github.io/blog/2014/05/04/css-overflow-and-width-percent-property">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Hyvin's Notepad" type="application/atom+xml">
@@ -68,7 +68,7 @@
   
   <header>
     
-      <h1 class="entry-title">Hi From Finland</h1>
+      <h1 class="entry-title">CSS Overflow and Width(%) 如何搭配工作</h1>
     
     
       <p class="meta">
@@ -84,18 +84,78 @@
   
 
 
-<time datetime="2014-05-01T13:31:18+03:00" pubdate data-updated="true">May 1<span>st</span>, 2014</time>
+<time datetime="2014-05-04T20:46:19+03:00" pubdate data-updated="true">May 4<span>th</span>, 2014</time>
        
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>劳动节 阴晴</p>
+<div class="entry-content"><p>今天看到一个用css写的[图片播放器]，介于在面试中被问到过类似问题(不过问的是有没有用js写过组建，比如图片播放器)，决定仔细研究一下。由于没有特别认真写过css也没有研究过specification，每次写都感觉在“调试”，就好像 &mdash;&ndash;></p>
 
-<p>自从4月考试周结束后，宿舍区就夜夜笙歌。每晚都有咚咚咚，咚咚咚的低音炮从四面八方传入屋内，好不热闹。这对刚从寂静的山上搬下来的我来说，实在是太棒了。</p>
+<p><img src="http://weknowmemes.com/wp-content/uploads/2013/03/programmer-problems.jpg" alt="image" /></p>
 
-<p>今天终于有空把octopress搭建起来，disqus也是个好玩意儿！Github无缘无故成了这么多博客的宿主不知道作何感想。</p>
+<br>
+
+
+<br>
+
+
+<p>回正题。
+这个image slider看完后我的疑问主要在这段：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#slider {
+</span><span class='line'>  max-width: 400px;  
+</span><span class='line'>  text-align: center;
+</span><span class='line'>  margin: 0 auto;
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>#overflow {
+</span><span class='line'>  width: 100%;
+</span><span class='line'>  overflow: hidden;  
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>#slides .inner {
+</span><span class='line'>  width: 400%; 
+</span><span class='line'>}
+</span><span class='line'>#slides article {
+</span><span class='line'>   width: 25%; 
+</span><span class='line'>  float: left;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<br>
+
+
+<p><strong>问题1：</strong></p>
+
+<p>400% 这个写法什么意思？</p>
+
+<p><strong>问题2：</strong></p>
+
+<p>如果把 <code>overflo:hidden</code> 去掉，则变成了</p>
+
+<p><img src="http://i.stack.imgur.com/PngT9.png" alt="image" /></p>
+
+<p>但是如果保留overflow:hidden 去掉两个width属性，则所有图片变成1个column。明明overflow是hidden为什么还是显示了4张图？为什么4张图不再像上图一样是一排？</p>
 </div>
 
 
@@ -118,12 +178,12 @@
   
 
 
-<time datetime="2014-05-01T13:31:18+03:00" pubdate data-updated="true">May 1<span>st</span>, 2014</time>
+<time datetime="2014-05-04T20:46:19+03:00" pubdate data-updated="true">May 4<span>th</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/daily/'>daily</a>
+    <a class='category' href='/blog/categories/css/'>css</a>
   
 </span>
 
@@ -132,7 +192,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://hyvin.github.io/blog/2014/05/01/hi-from-finland/" data-via="" data-counturl="http://hyvin.github.io/blog/2014/05/01/hi-from-finland/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://hyvin.github.io/blog/2014/05/04/css-overflow-and-width-percent-property/" data-via="" data-counturl="http://hyvin.github.io/blog/2014/05/04/css-overflow-and-width-percent-property/" >Tweet</a>
   
   
   
@@ -141,8 +201,8 @@
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/2014/05/02/direct-and-indirect-eval-call/" title="Previous Post: Direct and indirect eval call">&laquo; Direct and indirect eval call</a>
       
-        <a class="basic-alignment right" href="/blog/2014/05/02/direct-and-indirect-eval-call/" title="Next Post: Direct and indirect eval call">Direct and indirect eval call &raquo;</a>
       
     </p>
   </footer>
@@ -201,8 +261,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://hyvin.github.io/blog/2014/05/01/hi-from-finland/';
-        var disqus_url = 'http://hyvin.github.io/blog/2014/05/01/hi-from-finland/';
+        var disqus_identifier = 'http://hyvin.github.io/blog/2014/05/04/css-overflow-and-width-percent-property/';
+        var disqus_url = 'http://hyvin.github.io/blog/2014/05/04/css-overflow-and-width-percent-property/';
         var disqus_script = 'embed.js';
       
     (function () {
