@@ -4,7 +4,7 @@
   <title><![CDATA[Hyvin's Notepad]]></title>
   <link href="http://hyvin.github.io/atom.xml" rel="self"/>
   <link href="http://hyvin.github.io/"/>
-  <updated>2014-05-05T01:29:54+03:00</updated>
+  <updated>2014-05-05T01:35:33+03:00</updated>
   <id>http://hyvin.github.io/</id>
   <author>
     <name><![CDATA[Hyvin]]></name>
@@ -18,8 +18,9 @@
     <link href="http://hyvin.github.io/blog/2014/05/04/css-overflow-and-width-percent-property/"/>
     <updated>2014-05-04T20:46:19+03:00</updated>
     <id>http://hyvin.github.io/blog/2014/05/04/css-overflow-and-width-percent-property</id>
-    <content type="html"><![CDATA[<p>今天看到一个用css写的<a href="http://jsbin.com/hivunuga/1">图片播放器</a>，之前在面试中被问到过类似问题(不是问有没有用js写过组建，比如图片播放器)，决定仔细研究一下。不知道是不是很多人写css都有种在“调试”的赶脚，就好像&mdash;&ndash;>
-<img src="http://weknowmemes.com/wp-content/uploads/2013/03/programmer-problems.jpg" alt="image" /></p>
+    <content type="html"><![CDATA[<p>今天看到一个用css3写的<a href="http://jsbin.com/hivunuga/1">图片播放器</a>，之前在面试中被问到过类似问题(不过是问有没有用js写过组建，比如图片播放器)，决定仔细研究一下。不知道是不是很多人写css都有种在“调试”的赶脚，就好像&mdash;&ndash;></p>
+
+<p><img src="http://weknowmemes.com/wp-content/uploads/2013/03/programmer-problems.jpg" alt="image" /></p>
 
 <br>
 
