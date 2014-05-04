@@ -1,0 +1,45 @@
+---
+layout: post
+title: "Direct and indirect eval call"
+date: 2014-05-02 00:49:09 +0300
+comments: true
+categories: javascript
+---
+
+今天看到javascript design pattern中关于如何  [access global object], 代码如下：
+```javascript
+var global = (function () {
+				return this || (1, eval)('this');
+			}());
+```
+这代码的意思是无论在non-strict mode和strict mode都可以拿到global这个对象。但是`(1, eval)('this')`这行代码究竟是什么写法，对1到底代表什么非常不解，stackoverflow上面有说是这行代码表示indirect eval call，而direct和indirect eval的区别是direct的this是指闭包的this，indirect的this则是全局的this就好像这个方程是在全局被调用一样。还是没解释（1，eval）这种写法到底是什么意思，于是又分别读到了[全局eval]、JavaScript: The definitive guide的[4.12]章和[js的符号及术语]的定义。
+
+>A “direct eval” is a call to the eval() function with an expression that uses the exact, unqualified name “eval” (which is beginning to feel like a reserved word).
+
+```javascript
+var geval = eval; 
+// Using another name does a global eval（之后任何时候调用geval都将是间接eval）
+var x = "global", y = "global";
+
+function f() {// This function does a local eval
+var x = "local";// Define a local variable
+eval("x += 'changed';");// Direct eval sets local variable（直接eval调用，作用域为局）
+return x;// Return changed local variable
+}
+function g() {// This function does a global eval
+var y = "local";// A local variable
+geval("y += 'changed';");// Indirect eval sets global variable（间接eval调用，作用域为global）
+return y; // Return unchanged local variable
+}
+console.log(f(), x); // Local variable changed: prints "localchanged global":
+console.log(g(), y); // Global variable changed: prints "local globalchanged":
+```
+
+首先几个概念：
+
+- 原始表达式（primary expression）：包括常量（constant），直接量（literal values，如字符串或者正则）、关键字（keywords）和变量（var）。
+
+[access global object]: https://github.com/shichuan/javascript-patterns/blob/master/general-patterns/access-to-global-object.html
+[全局eval]: http://perfectionkills.com/global-eval-what-are-the-options/
+[js的符号及术语]: http://www.ecma-international.org/ecma-262/5.1/#sec-11.2
+[4.12]:https://www.inkling.com/read/javascript-definitive-guide-david-flanagan-6th/chapter-4/evaluation-expressions
