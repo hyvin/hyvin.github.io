@@ -9,7 +9,7 @@
   <meta name="author" content="Hyvin">
 
   
-  <meta name="description" content="今天看到一个用css写的[图片播放器]，介于在面试中被问到过类似问题(不过问的是有没有用js写过组建，比如图片播放器)，决定仔细研究一下。由于没有特别认真写过css也没有研究过specification，每次写都感觉在“调试”，就好像 &mdash;&ndash;> 回正题。
+  <meta name="description" content="今天看到一个用css写的图片播放器，介于在面试中被问到过类似问题(不过问的是有没有用js写过组建，比如图片播放器)，决定仔细研究一下。由于没有特别认真写过css也没有研究过specification，每次写都感觉在“调试”，就好像 &mdash;&ndash;> 回正题。
 这个image &hellip;">
   
 
@@ -91,7 +91,7 @@
   </header>
 
 
-<div class="entry-content"><p>今天看到一个用css写的[图片播放器]，介于在面试中被问到过类似问题(不过问的是有没有用js写过组建，比如图片播放器)，决定仔细研究一下。由于没有特别认真写过css也没有研究过specification，每次写都感觉在“调试”，就好像 &mdash;&ndash;></p>
+<div class="entry-content"><p>今天看到一个用css写的<a href="http://jsbin.com/hivunuga/1">图片播放器</a>，介于在面试中被问到过类似问题(不过问的是有没有用js写过组建，比如图片播放器)，决定仔细研究一下。由于没有特别认真写过css也没有研究过specification，每次写都感觉在“调试”，就好像 &mdash;&ndash;></p>
 
 <p><img src="http://weknowmemes.com/wp-content/uploads/2013/03/programmer-problems.jpg" alt="image" /></p>
 
@@ -156,6 +156,34 @@
 <p><img src="http://i.stack.imgur.com/PngT9.png" alt="image" /></p>
 
 <p>但是如果保留overflow:hidden 去掉两个width属性，则所有图片变成1个column。明明overflow是hidden为什么还是显示了4张图？为什么4张图不再像上图一样是一排？</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#overflow {
+</span><span class='line'>  width: 100%;
+</span><span class='line'>  overflow: hidden;
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>#slides .inner {
+</span><span class='line'>  /* width: 400%; */
+</span><span class='line'>}
+</span><span class='line'>#slides article {
+</span><span class='line'>  /* width: 25%; */
+</span><span class='line'>  float: left;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="http://i.stack.imgur.com/E3x4q.png" alt="image" /></p>
 </div>
 
 
