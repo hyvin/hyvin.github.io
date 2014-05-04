@@ -4,7 +4,7 @@
   <title><![CDATA[Category: css | Hyvin's Notepad]]></title>
   <link href="http://hyvin.github.io/blog/categories/css/atom.xml" rel="self"/>
   <link href="http://hyvin.github.io/"/>
-  <updated>2014-05-04T22:07:34+03:00</updated>
+  <updated>2014-05-04T22:09:19+03:00</updated>
   <id>http://hyvin.github.io/</id>
   <author>
     <name><![CDATA[Hyvin]]></name>
@@ -18,7 +18,8 @@
     <link href="http://hyvin.github.io/blog/2014/05/04/css-overflow-and-width-percent-property/"/>
     <updated>2014-05-04T20:46:19+03:00</updated>
     <id>http://hyvin.github.io/blog/2014/05/04/css-overflow-and-width-percent-property</id>
-    <content type="html"><![CDATA[<p>今天看到一个用css写的<a href="http://jsbin.com/hivunuga/1">图片播放器</a>，介于在面试中被问到过类似问题(不过问的是有没有用js写过组建，比如图片播放器)，决定仔细研究一下。由于没有特别认真写过css也没有研究过specification，每次写都感觉在“调试”，就好像 &mdash;&ndash;></p>
+    <content type="html"><![CDATA[<p>今天看到一个用css写的<a href="http://jsbin.com/hivunuga/1">图片播放器</a>，介于在面试中被问到过类似问题(不过问的是有没有用js写过组建，比如图片播放器)，决定仔细研究一下。由于没有特别认真写过css也没有研究过specification，每次写都感觉在“调试”，就好像 &mdash;&ndash;>
+<img src="http://weknowmemes.com/wp-content/uploads/2013/03/programmer-problems.jpg" alt="image" /></p>
 
 <br>
 
@@ -27,7 +28,7 @@
 
 
 <p>回正题。
-这个image slider看完后我的疑问主要在这段：</p>
+<a href="http://jsbin.com/hivunuga/1">代码</a>看完后我的疑问主要在这段：</p>
 
 <p>```</p>
 
@@ -129,11 +130,12 @@
 <p>  /<em> width: 25%; </em>/
   float: left;
 }
-<code>
-那么一个图片将不会占parent容器的1/4宽度，而会是实际的300px。又由于`float：left`，则后面的图片会被放依次排到图片1的下面。
-**问题3：**
+<code>``
+那么一个图片将不会占parent容器的1/4宽度，而会是实际的300px。又由于</code>float：left`，则后面的图片会被放依次排到图片1的下面。</p>
+
+<p><strong>问题3：</strong>
 这个25%去掉没变化
-</code></p>
+```</p>
 
 <h1>slides article {</h1>
 
@@ -141,8 +143,7 @@
   float: left;
 }
 <code>`
-是因为</code>#slider<code>的宽度恰好等于图片的宽度，如果</code>#slider<code>变为400px，那么图片2会有一部分显示出来。这个25%的用处就是无论</code>#slider``的宽度是多少，包含图片的div永远等于slider的宽度，又因为image被center在div，所以看上active部分只会显示一张图片。
-<img src="http://weknowmemes.com/wp-content/uploads/2013/03/programmer-problems.jpg" alt="image" /></p>
+是因为</code>#slider<code>的宽度恰好等于图片的宽度，如果</code>#slider<code>变为400px，那么图片2会有一部分显示出来。这个25%的用处就是无论</code>#slider``的宽度是多少，包含图片的div永远等于slider的宽度，又因为image被center在div，所以看上active部分只会显示一张图片。</p>
 ]]></content>
   </entry>
   

@@ -9,8 +9,7 @@
   <meta name="author" content="Hyvin">
 
   
-  <meta name="description" content="今天看到一个用css写的图片播放器，介于在面试中被问到过类似问题(不过问的是有没有用js写过组建，比如图片播放器)，决定仔细研究一下。由于没有特别认真写过css也没有研究过specification，每次写都感觉在“调试”，就好像 &mdash;&ndash;> 回正题。
-这个image &hellip;">
+  <meta name="description" content="今天看到一个用css写的图片播放器，介于在面试中被问到过类似问题(不过问的是有没有用js写过组建，比如图片播放器)，决定仔细研究一下。由于没有特别认真写过css也没有研究过specification，每次写都感觉在“调试”，就好像 &mdash;&ndash;> 回正题。 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -94,7 +93,8 @@
   </header>
 
 
-  <div class="entry-content"><p>今天看到一个用css写的<a href="http://jsbin.com/hivunuga/1">图片播放器</a>，介于在面试中被问到过类似问题(不过问的是有没有用js写过组建，比如图片播放器)，决定仔细研究一下。由于没有特别认真写过css也没有研究过specification，每次写都感觉在“调试”，就好像 &mdash;&ndash;></p>
+  <div class="entry-content"><p>今天看到一个用css写的<a href="http://jsbin.com/hivunuga/1">图片播放器</a>，介于在面试中被问到过类似问题(不过问的是有没有用js写过组建，比如图片播放器)，决定仔细研究一下。由于没有特别认真写过css也没有研究过specification，每次写都感觉在“调试”，就好像 &mdash;&ndash;>
+<img src="http://weknowmemes.com/wp-content/uploads/2013/03/programmer-problems.jpg" alt="image" /></p>
 
 <br>
 
@@ -103,7 +103,7 @@
 
 
 <p>回正题。
-这个image slider看完后我的疑问主要在这段：</p>
+<a href="http://jsbin.com/hivunuga/1">代码</a>看完后我的疑问主要在这段：</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -231,8 +231,9 @@
 </span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 
-<p>那么一个图片将不会占parent容器的1/4宽度，而会是实际的300px。又由于<code>float：left</code>，则后面的图片会被放依次排到图片1的下面。
-<strong>问题3：</strong>
+<p>那么一个图片将不会占parent容器的1/4宽度，而会是实际的300px。又由于<code>float：left</code>，则后面的图片会被放依次排到图片1的下面。</p>
+
+<p><strong>问题3：</strong>
 这个25%去掉没变化</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -245,8 +246,7 @@
 </span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 
-<p>是因为<code>#slider</code>的宽度恰好等于图片的宽度，如果<code>#slider</code>变为400px，那么图片2会有一部分显示出来。这个25%的用处就是无论<code>#slider</code>的宽度是多少，包含图片的div永远等于slider的宽度，又因为image被center在div，所以看上active部分只会显示一张图片。
-<img src="http://weknowmemes.com/wp-content/uploads/2013/03/programmer-problems.jpg" alt="image" /></p>
+<p>是因为<code>#slider</code>的宽度恰好等于图片的宽度，如果<code>#slider</code>变为400px，那么图片2会有一部分显示出来。这个25%的用处就是无论<code>#slider</code>的宽度是多少，包含图片的div永远等于slider的宽度，又因为image被center在div，所以看上active部分只会显示一张图片。</p>
 </div>
   
   
