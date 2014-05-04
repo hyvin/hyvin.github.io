@@ -9,7 +9,8 @@
   <meta name="author" content="Hyvin">
 
   
-  <meta name="description" content="今天看到一个用css写的图片播放器，介于在面试中被问到过类似问题(不过问的是有没有用js写过组建，比如图片播放器)，决定仔细研究一下。由于没有特别认真写过css也没有研究过specification，每次写都感觉在“调试”，就好像 &mdash;&ndash;> 回正题。 &hellip;">
+  <meta name="description" content="今天看到一个用css写的图片播放器，介于在面试中被问到过类似问题(不过问的是有没有用js写过组建，比如图片播放器)，决定仔细研究一下。由于没有特别认真写过css也没有研究过specification，每次写都感觉在“调试”，就好像 &mdash;&ndash;> 回正题。
+这个image &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -95,8 +96,6 @@
 
   <div class="entry-content"><p>今天看到一个用css写的<a href="http://jsbin.com/hivunuga/1">图片播放器</a>，介于在面试中被问到过类似问题(不过问的是有没有用js写过组建，比如图片播放器)，决定仔细研究一下。由于没有特别认真写过css也没有研究过specification，每次写都感觉在“调试”，就好像 &mdash;&ndash;></p>
 
-<p><img src="http://weknowmemes.com/wp-content/uploads/2013/03/programmer-problems.jpg" alt="image" /></p>
-
 <br>
 
 
@@ -104,7 +103,7 @@
 
 
 <p>回正题。
-这个图片播放器<a href="http://jsbin.com/hivunuga/1">源码</a>看完后我的疑问主要在这段：</p>
+这个image slider看完后我的疑问主要在这段：</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -125,7 +124,7 @@
 <span class='line-number'>17</span>
 <span class='line-number'>18</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>#slider {
-</span><span class='line'>  max-width: 400px;  
+</span><span class='line'>  max-width: 300px;  
 </span><span class='line'>  text-align: center;
 </span><span class='line'>  margin: 0 auto;
 </span><span class='line'>}
@@ -144,16 +143,13 @@
 </span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 
-<br>
-
-
 <p><strong>问题1：</strong></p>
 
 <p>400% 这个写法什么意思？</p>
 
 <p><strong>问题2：</strong></p>
 
-<p>如果把 <code>overflo:hidden</code> 去掉，则变成了</p>
+<p>如果把 <code>overflo:hidden</code> 去掉，则变成了下图，这个很好理解。</p>
 
 <p><img src="http://i.stack.imgur.com/PngT9.png" alt="image" /></p>
 
@@ -186,6 +182,71 @@
 
 
 <p><img src="http://i.stack.imgur.com/E3x4q.png" alt="image" /></p>
+
+<p><strong>问题3：</strong></p>
+
+<p>这个25%有什么用？如果其他不变，这个comment掉好像没什么影响。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#slides article {
+</span><span class='line'>   width: 25%; 
+</span><span class='line'>  float: left;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<br>
+
+
+<p><strong>解答：</strong></p>
+
+<p><strong>问题1：</strong></p>
+
+<p>400%表示inner的宽度是它的parent的4倍，也就是4 × 300px，但是由于overflow是hidden 所以真正active的部分只有300px，所以只显示一张图。</p>
+
+<p><strong>问题2：</strong></p>
+
+<p>comment掉<code>width:400%</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#slides .inner {
+</span><span class='line'>  /* width: 400%; */
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>那么一个图片实际的containe变回<code>width：300px</code>而不是之前的<code>1200px</code>.
+又comment掉图片的<code>width：25%</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#slides article {
+</span><span class='line'>  /* width: 25%; */
+</span><span class='line'>  float: left;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>那么一个图片将不会占parent容器的1/4宽度，而会是实际的300px。又由于<code>float：left</code>，则后面的图片会被放依次排到图片1的下面。
+<strong>问题3：</strong>
+这个25%去掉没变化</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#slides article {
+</span><span class='line'>  width: 25%; 
+</span><span class='line'>  float: left;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>是因为<code>#slider</code>的宽度恰好等于图片的宽度，如果<code>#slider</code>变为400px，那么图片2会有一部分显示出来。这个25%的用处就是无论<code>#slider</code>的宽度是多少，包含图片的div永远等于slider的宽度，又因为image被center在div，所以看上active部分只会显示一张图片。
+<img src="http://weknowmemes.com/wp-content/uploads/2013/03/programmer-problems.jpg" alt="image" /></p>
 </div>
   
   
