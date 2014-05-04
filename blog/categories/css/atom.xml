@@ -4,7 +4,7 @@
   <title><![CDATA[Category: css | Hyvin's Notepad]]></title>
   <link href="http://hyvin.github.io/blog/categories/css/atom.xml" rel="self"/>
   <link href="http://hyvin.github.io/"/>
-  <updated>2014-05-04T21:21:20+03:00</updated>
+  <updated>2014-05-04T21:23:03+03:00</updated>
   <id>http://hyvin.github.io/</id>
   <author>
     <name><![CDATA[Hyvin]]></name>
@@ -29,7 +29,7 @@
 
 
 <p>回正题。
-这个image slider看完后我的疑问主要在这段：</p>
+这个图片播放器<a href="http://jsbin.com/hivunuga/1">源码</a>看完后我的疑问主要在这段：</p>
 
 <p>```</p>
 
