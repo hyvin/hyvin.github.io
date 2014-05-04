@@ -4,7 +4,7 @@
   <title><![CDATA[Category: css | Hyvin's Notepad]]></title>
   <link href="http://hyvin.github.io/blog/categories/css/atom.xml" rel="self"/>
   <link href="http://hyvin.github.io/"/>
-  <updated>2014-05-04T22:16:59+03:00</updated>
+  <updated>2014-05-04T22:17:59+03:00</updated>
   <id>http://hyvin.github.io/</id>
   <author>
     <name><![CDATA[Hyvin]]></name>
@@ -111,8 +111,9 @@
 
 <p>400%表示inner的宽度是它的parent的4倍，也就是4 × 300px，但是由于overflow是hidden 所以真正active的部分只有300px，所以只显示一张图。</p>
 
-<p><strong>问题2：</strong>
-先回答“明明overflow是hidden为什么还是显示了4张图？”
+<p><strong>问题2：</strong></p>
+
+<p>先回答“明明overflow是hidden为什么还是显示了4张图？”
 虽然是overflow为hidden，但是由于<code>#slider</code>只设定了宽度，没有设定高度，所以图片在宽度不够的时候会自然往下排。但在这个情况下，即便设置高度也没有意义，因为<code>#slider</code>的子元素<code>#slides article</code>设置了<code>float</code>，这会导致parent的高度collapse。</p>
 
 <p>comment掉<code>width:400%</code>
