@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Hi From Finland - Hyvin's Notepad</title>
+  <title>STUN and TURN - Hyvin's Notepad</title>
   <meta name="author" content="Hyvin">
 
   
-  <meta name="description" content="劳动节 阴晴 自从4月考试周结束后，宿舍区就夜夜笙歌。每晚都有咚咚咚，咚咚咚的低音炮从四面八方传入屋内，好不热闹。这对刚从寂静的山上搬下来的我来说，实在是太棒了。 今天终于有空把octopress搭建起来，disqus也是个好玩意儿！Github无缘无故成了这么多博客的宿主不知道作何感想。
-">
+  <meta name="description" content="首先，STUN 和 TURN 是协议，ICE是整合了 STUN 和 TURN 的一个框架。 STUN 由于NAT和firewal，在内网的client（私有IP）可以向外发送请求但是外网却无法联系内网的client。 内网client发送请去STUN服务器，得到和自己关联的NAT设备（比如路由） &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://hyvin.github.io/blog/2014/05/01/hi-from-finland">
+  <link rel="canonical" href="http://hyvin.github.io/blog/2014/05/07/stun-and-turn">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Hyvin's Notepad" type="application/atom+xml">
@@ -68,7 +67,7 @@
   
   <header>
     
-      <h1 class="entry-title">Hi From Finland</h1>
+      <h1 class="entry-title">STUN and TURN</h1>
     
     
       <p class="meta">
@@ -84,18 +83,33 @@
   
 
 
-<time datetime="2014-05-01T13:31:18+03:00" pubdate data-updated="true">May 1<span>st</span>, 2014</time>
+<time datetime="2014-05-07T01:57:05+03:00" pubdate data-updated="true">May 7<span>th</span>, 2014</time>
        
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>劳动节 阴晴</p>
+<div class="entry-content"><p>首先，STUN 和 TURN 是协议，ICE是整合了 STUN 和 TURN 的一个框架。</p>
 
-<p>自从4月考试周结束后，宿舍区就夜夜笙歌。每晚都有咚咚咚，咚咚咚的低音炮从四面八方传入屋内，好不热闹。这对刚从寂静的山上搬下来的我来说，实在是太棒了。</p>
+<h2>STUN</h2>
 
-<p>今天终于有空把octopress搭建起来，disqus也是个好玩意儿！Github无缘无故成了这么多博客的宿主不知道作何感想。</p>
+<p>由于NAT和firewal，在内网的client（私有IP）可以向外发送请求但是外网却无法联系内网的client。</p>
+
+<p><img src="http://orm-chimera-prod.s3.amazonaws.com/1230000000545/images/hpbn_0304.png" alt="image" /></p>
+
+<p>内网client发送请去STUN服务器，得到和自己关联的NAT设备（比如路由）的公网IP和和port。</p>
+
+<p><img src="http://orm-chimera-prod.s3.amazonaws.com/1230000000545/images/hpbn_0305.png" alt="image" /></p>
+
+<p><img src="https://dl.dropboxusercontent.com/u/27608421/Screenshot%20from%202014-05-07%2001%3A47%3A14.png" alt="image" /></p>
+
+<p>随后translation table就会建立起来。
+<img src="http://orm-chimera-prod.s3.amazonaws.com/1230000000545/images/hpbn_0303.png" alt="image" /></p>
+
+<h2>TURN</h2>
+
+<p><a href="https://hacks.mozilla.org/2013/07/webrtc-and-the-ocean-of-acronyms/">https://hacks.mozilla.org/2013/07/webrtc-and-the-ocean-of-acronyms/</a></p>
 </div>
 
 
@@ -118,21 +132,15 @@
   
 
 
-<time datetime="2014-05-01T13:31:18+03:00" pubdate data-updated="true">May 1<span>st</span>, 2014</time>
+<time datetime="2014-05-07T01:57:05+03:00" pubdate data-updated="true">May 7<span>th</span>, 2014</time>
       
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/daily/'>daily</a>
-  
-</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://hyvin.github.io/blog/2014/05/01/hi-from-finland/" data-via="" data-counturl="http://hyvin.github.io/blog/2014/05/01/hi-from-finland/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://hyvin.github.io/blog/2014/05/07/stun-and-turn/" data-via="" data-counturl="http://hyvin.github.io/blog/2014/05/07/stun-and-turn/" >Tweet</a>
   
   
   
@@ -141,8 +149,8 @@
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/2014/05/04/css-overflow-and-width-percent-property/" title="Previous Post: CSS overflow and width(%) 如何搭配工作">&laquo; CSS overflow and width(%) 如何搭配工作</a>
       
-        <a class="basic-alignment right" href="/blog/2014/05/02/direct-and-indirect-eval-call/" title="Next Post: Direct and indirect eval call">Direct and indirect eval call &raquo;</a>
       
     </p>
   </footer>
@@ -205,8 +213,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://hyvin.github.io/blog/2014/05/01/hi-from-finland/';
-        var disqus_url = 'http://hyvin.github.io/blog/2014/05/01/hi-from-finland/';
+        var disqus_identifier = 'http://hyvin.github.io/blog/2014/05/07/stun-and-turn/';
+        var disqus_url = 'http://hyvin.github.io/blog/2014/05/07/stun-and-turn/';
         var disqus_script = 'embed.js';
       
     (function () {

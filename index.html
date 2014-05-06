@@ -9,16 +9,7 @@
   <meta name="author" content="Hyvin">
 
   
-  <meta name="description" content="今天看到一个用css3写的图片播放器，之前在面试中被问到过类似问题(不过是问有没有用js写过组建，比如图片播放器)，决定仔细研究一下。不知道是不是很多人写css都有种在“调试”的赶脚，就好像&mdash;&ndash;> 回正题。
-代码看完后我的疑问主要在这段： 1
-2
-3
-4
-5
-6
-7
-8
-9 &hellip;">
+  <meta name="description" content="首先，STUN 和 TURN 是协议，ICE是整合了 STUN 和 TURN 的一个框架。 STUN 由于NAT和firewal，在内网的client（私有IP）可以向外发送请求但是外网却无法联系内网的client。 内网client发送请去STUN服务器，得到和自己关联的NAT设备（比如路由） &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -73,6 +64,61 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/05/07/stun-and-turn/">STUN and TURN</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-07T01:57:05+03:00" pubdate data-updated="true">May 7<span>th</span>, 2014</time>
+       
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>首先，STUN 和 TURN 是协议，ICE是整合了 STUN 和 TURN 的一个框架。</p>
+
+<h2>STUN</h2>
+
+<p>由于NAT和firewal，在内网的client（私有IP）可以向外发送请求但是外网却无法联系内网的client。</p>
+
+<p><img src="http://orm-chimera-prod.s3.amazonaws.com/1230000000545/images/hpbn_0304.png" alt="image" /></p>
+
+<p>内网client发送请去STUN服务器，得到和自己关联的NAT设备（比如路由）的公网IP和和port。</p>
+
+<p><img src="http://orm-chimera-prod.s3.amazonaws.com/1230000000545/images/hpbn_0305.png" alt="image" /></p>
+
+<p><img src="https://dl.dropboxusercontent.com/u/27608421/Screenshot%20from%202014-05-07%2001%3A47%3A14.png" alt="image" /></p>
+
+<p>随后translation table就会建立起来。
+<img src="http://orm-chimera-prod.s3.amazonaws.com/1230000000545/images/hpbn_0303.png" alt="image" /></p>
+
+<h2>TURN</h2>
+
+<p><a href="https://hacks.mozilla.org/2013/07/webrtc-and-the-ocean-of-acronyms/">https://hacks.mozilla.org/2013/07/webrtc-and-the-ocean-of-acronyms/</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -425,6 +471,10 @@ GetValue (V)</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/05/07/stun-and-turn/">STUN and TURN</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/05/04/css-overflow-and-width-percent-property/">CSS overflow and width(%) 如何搭配工作</a>
