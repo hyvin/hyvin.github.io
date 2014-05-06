@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: networking | Hyvin's Notepad]]></title>
+  <link href="http://hyvin.github.io/blog/categories/networking/atom.xml" rel="self"/>
+  <link href="http://hyvin.github.io/"/>
+  <updated>2014-05-07T02:02:28+03:00</updated>
+  <id>http://hyvin.github.io/</id>
+  <author>
+    <name><![CDATA[Hyvin]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[STUN and TURN]]></title>
+    <link href="http://hyvin.github.io/blog/2014/05/07/stun-and-turn/"/>
+    <updated>2014-05-07T01:57:05+03:00</updated>
+    <id>http://hyvin.github.io/blog/2014/05/07/stun-and-turn</id>
+    <content type="html"><![CDATA[<p>首先，STUN 和 TURN 是协议，ICE是整合了 STUN 和 TURN 的一个框架。</p>
+
+<h2>STUN</h2>
+
+<p>由于NAT和firewal，在内网的client（私有IP）可以向外发送请求但是外网却无法联系内网的client。</p>
+
+<p><img src="http://orm-chimera-prod.s3.amazonaws.com/1230000000545/images/hpbn_0304.png" alt="image" /></p>
+
+<p>内网client发送请去STUN服务器，得到和自己关联的NAT设备（比如路由）的公网IP和和port。</p>
+
+<p><img src="http://orm-chimera-prod.s3.amazonaws.com/1230000000545/images/hpbn_0305.png" alt="image" /></p>
+
+<p><img src="https://dl.dropboxusercontent.com/u/27608421/Screenshot%20from%202014-05-07%2001%3A47%3A14.png" alt="image" /></p>
+
+<p>随后translation table就会建立起来。</p>
+
+<p><img src="http://orm-chimera-prod.s3.amazonaws.com/1230000000545/images/hpbn_0303.png" alt="image" /></p>
+
+<h2>TURN</h2>
+
+<p><a href="https://hacks.mozilla.org/2013/07/webrtc-and-the-ocean-of-acronyms/">https://hacks.mozilla.org/2013/07/webrtc-and-the-ocean-of-acronyms/</a></p>
+]]></content>
+  </entry>
+  
+</feed>
